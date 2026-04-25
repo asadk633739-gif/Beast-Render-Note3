@@ -19,12 +19,12 @@ jobs:
           gradle-version: 8.5
 
       - name: Build Mod
-        # Yahan hum direct gradle command use kar rahe hain
-        run: gradle build -x test --no-daemon --stacktrace
+        # Bina gradlew ke direct gradle command
+        run: gradle build -x test --no-daemon
 
       - name: Upload JAR
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: Beast-V2-Final-Mod
-          path: build/libs/*.jar
+          path: "**/build/libs/*.jar"
