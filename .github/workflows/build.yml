@@ -1,4 +1,4 @@
-name: Beast-V2-Final-Build
+name: Beast-V2-Build
 on: [push]
 jobs:
   build:
@@ -13,13 +13,8 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Validate Gradle Wrapper
-        uses: gradle/wrapper-validation-action@v1
-
       - name: Build Mod
-        run: |
-          chmod +x gradlew
-          ./gradlew build -x test --no-daemon
+        run: gradle build --no-daemon
 
       - name: Upload JAR
         uses: actions/upload-artifact@v4
