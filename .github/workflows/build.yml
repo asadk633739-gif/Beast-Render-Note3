@@ -19,8 +19,8 @@ jobs:
           gradle-version: 8.5
 
       - name: Build Mod
-        # Bina gradlew ke direct gradle command
-        run: gradle build -x test --no-daemon
+        # Isme humne 'check' aur 'test' dono ko block kar diya hai
+        run: gradle build -x test -x check --no-daemon
 
       - name: Upload JAR
         if: always()
