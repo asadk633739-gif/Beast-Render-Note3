@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "id": "beast-v2",
-  "version": "${version}",
-  "name": "Beast Render V2",
-  "description": "Extreme FPS Boost for Infinix Note 30",
-  "authors": ["BeastModder"],
+  "id": "beastv2",
+  "version": "2.0.0",
+  "name": "Beast Render",
+  "description": "FPS Boost for Infinix",
+  "authors": ["Beast"],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/beast/icon.png",
+  "icon": "assets/beastv2/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": ["com.beast.mod.BeastMod"]
