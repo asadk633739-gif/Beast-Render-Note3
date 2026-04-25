@@ -1,19 +1,2 @@
-name: Beast-V2-Build
-on: [push]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-      - name: Build with Gradle
+      - name: Build Mod
         run: gradle build --no-daemon
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Beast-V2-Final
-          path: build/libs/*.jar
