@@ -1,4 +1,4 @@
-name: Beast-Final-Push
+name: Beast-V2-Final-Push
 on: [push]
 jobs:
   build:
@@ -19,10 +19,13 @@ jobs:
           gradle-version: 8.4
 
       - name: Build Mod
-        run: gradle build --no-daemon
+        run: gradle build --stacktrace --no-daemon
+        env:
+          JAVA_OPTS: "-Xmx2g"
 
       - name: Upload JAR
+        if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: Beast-V2-JAR
+          name: Beast-V2-Final-Mod
           path: build/libs/*.jar
