@@ -13,21 +13,18 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Force Gradle 8.5
+      - name: Setup Gradle 8.5
         uses: gradle/actions/setup-gradle@v3
         with:
           gradle-version: 8.5
 
       - name: Build Mod
-        # Humne '--no-daemon' hata diya hai aur 'remapJar' ko focus kiya hai
-        run: ./gradlew build remapJar -x test --stacktrace
+        # Yahan hum direct gradle command use kar rahe hain
+        run: gradle build -x test --no-daemon --stacktrace
 
       - name: Upload JAR
-        if: always() # Ye sabse important hai, fail hone par bhi file dhoondega
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: Beast-V2-Final-Mod
-          path: |
-            build/libs/*.jar
-            !build/libs/*-dev.jar
-            !build/libs/*-sources.jar
+          path: build/libs/*.jar
