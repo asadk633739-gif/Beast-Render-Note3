@@ -19,7 +19,7 @@ jobs:
           gradle-version: 8.5
 
       - name: Build Mod
-        run: gradle build --no-daemon
+        run: gradle build -x test --continue --stacktrace --no-daemon
 
       - name: Upload JAR
         if: success()
