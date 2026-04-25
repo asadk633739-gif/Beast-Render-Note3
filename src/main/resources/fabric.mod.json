@@ -1,16 +1,18 @@
 {
   "schemaVersion": 1,
-  "id": "beast-v2",
-  "version": "2.0.0",
-  "name": "Beast Render V2",
-  "description": "Extreme FPS Boost",
-  "authors": ["BeastModder"],
+  "id": "beastmod",
+  "version": "1.0.0",
+  "name": "Beast Mod V2",
+  "description": "Optimized for mobile performance",
+  "authors": ["Asad"],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/beast/icon.png",
+  "icon": "assets/beastmod/icon.png",
   "environment": "*",
   "entrypoints": {
-    "main": ["com.beast.mod.BeastMod"]
+    "main": [
+      "com.beast.mod.BeastMod"
+    ]
   },
   "depends": {
     "fabricloader": ">=0.15.0",
