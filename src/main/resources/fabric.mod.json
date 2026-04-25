@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "beast_v2_aio",
+  "version": "2.0.0",
+  "name": "BeastRender V2 - PC Overdrive",
+  "description": "Custom high-end rendering for Infinix Note 30 5G. Scratch built.",
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.beast.mod.BeastCore"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.7",
+    "minecraft": "1.20.1"
+  }
+}
