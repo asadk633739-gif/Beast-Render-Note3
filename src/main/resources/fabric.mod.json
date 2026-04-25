@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "id": "beastv2",
+  "id": "beast-v2",
   "version": "2.0.0",
-  "name": "Beast Render",
-  "description": "FPS Boost for Infinix",
-  "authors": ["Beast"],
+  "name": "Beast Render V2",
+  "description": "Extreme FPS Boost",
+  "authors": ["BeastModder"],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/beastv2/icon.png",
+  "icon": "assets/beast/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": ["com.beast.mod.BeastMod"]
