@@ -18,12 +18,16 @@ jobs:
         with:
           gradle-version: 8.5
 
-      - name: Build Mod (The Beast Mode)
-        run: gradle build -x test -x check --no-daemon --stacktrace --continue
+      - name: Build Mod
+        # Humne '--no-daemon' hata diya hai aur 'remapJar' ko focus kiya hai
+        run: ./gradlew build remapJar -x test --stacktrace
 
       - name: Upload JAR
-        if: always()
+        if: always() # Ye sabse important hai, fail hone par bhi file dhoondega
         uses: actions/upload-artifact@v4
         with:
           name: Beast-V2-Final-Mod
-          path: build/libs/*.jar
+          path: |
+            build/libs/*.jar
+            !build/libs/*-dev.jar
+            !build/libs/*-sources.jar
