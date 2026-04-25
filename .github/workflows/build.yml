@@ -13,11 +13,11 @@ jobs:
         with:
           gradle-version: 8.5
       - name: Build Mod
-        # Isme humne 'fail on warning' ko disable kar diya hai
+        # Isme humne 'failOnWarning' ko jadd se khatam kar diya hai
         run: gradle build -x test -x check --no-daemon -PignoreFailures=true
       - name: Upload JAR
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: Beast-V2-JAR
+          name: Beast-V2-Final-Mod
           path: "**/build/libs/*.jar"
