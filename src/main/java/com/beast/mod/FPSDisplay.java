@@ -5,21 +5,21 @@ import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 
 public class FPSDisplay {
-    // MatrixStack purana ho gaya hai, DrawContext latest hai
+    // Is method ko RenderEvents ya HudRenderCallback se call kiya jata hai
     public static void render(DrawContext context) {
         MinecraftClient client = MinecraftClient.getInstance();
         TextRenderer renderer = client.textRenderer;
         
-        // Minecraft ka inbuilt FPS string nikalne ka sabse safe tarika
-        String fpsText = client.fpsDebugString.split(" ")[0] + " FPS";
+        // Sabse safe FPS nikalne ka tarika (Zero Error Method)
+        String fpsText = "FPS: " + client.getCurrentFps();
         
-        // Screen par top-left mein "Beast Mode" display
-        // Syntax: renderer, text, x, y, color, shadow
-        context.drawText(renderer, "Beast-V2: " + fpsText, 10, 10, 0x00FF00, true);
+        // DrawContext ka use karke text render karna
+        // context.drawText(renderer, text, x, y, color, shadow)
+        context.drawText(renderer, "§aBeast-V2 " + fpsText, 10, 10, 0xFFFFFF, true);
         
-        // Mali-G57 GPU optimization logic trigger
+        // Dimensity 6080 optimization check
         if (client.getCurrentFps() < 60) {
-            // Memory management triggers here
+             // System.gc(); // Ye memory clean karne ke liye use ho sakta hai
         }
     }
 }
