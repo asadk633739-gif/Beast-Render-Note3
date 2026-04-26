@@ -5,16 +5,22 @@ import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 
 public class FPSDisplay {
-    // Ye method compile hone ki 100% guarantee hai
     public static void render(DrawContext context) {
         MinecraftClient client = MinecraftClient.getInstance();
+        if (client == null || client.textRenderer == null) return;
+
         TextRenderer renderer = client.textRenderer;
         
-        // Sabse safe method: Debug string se FPS uthana
-        String fpsString = client.fpsDebugString.split(" ")[0];
+        // Mobile FPS extraction (Safe Method)
+        String fpsText = "Beast-V2 FPS: " + client.getCurrentFps();
         
-        // Screen par "Beast-V2" display karega (Green color)
-        // DrawContext.drawText(renderer, text, x, y, color, shadow)
-        context.drawText(renderer, "§aBeast-V2 FPS: " + fpsString, 10, 10, 0x00FF00, true);
+        // Screen rendering (Top Left)
+        // §a = Green color for that PC feel
+        context.drawText(renderer, "§a" + fpsText, 10, 10, 0xFFFFFF, true);
+        
+        // Performance Signal
+        if (client.getCurrentFps() < 60) {
+            // Future: Add Holy Renderer optimization calls here
+        }
     }
 }
